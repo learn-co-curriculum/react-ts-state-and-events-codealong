@@ -34,7 +34,8 @@ following:
 - The button should say "OFF" when it is first displayed
 - When the button is clicked, it should say "ON"
 - When the button is clicked again, it should say "OFF"
-- etc
+- When clicked, the button should continue toggling between "ON" and "OFF"
+  accordingly
 
 Let's talk through the steps and how we might think about building a feature
 like this as a React developer.
@@ -84,7 +85,7 @@ Any time we need state in a component, we need to use the `useState` hook from
 React. We can import it like so:
 
 ```jsx
-import React, { useState } from "react";
+import { useState } from "react";
 ```
 
 #### 2. Set up the initial state
@@ -102,6 +103,10 @@ function Toggle() {
 Whenever you're using a React hook, it **must** be within a React component.
 We're setting the initial state here as `false`, because the button should be
 "OFF" when the component first renders.
+
+> **Note**: TypeScript can infer that our state should be a `boolean` so we
+> don't _need_ to explicitly type it. However, it doesn't hurt to be explicit
+> either! Feel free to add the type if you prefer. Can you remember the syntax?
 
 #### 3. Use the state variable in the component
 
